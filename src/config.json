@@ -1,0 +1,20 @@
+{
+  "source_directory": "D:/AIMSBackup",
+  "file_server_directory": "C:/Users/0291/OneDrive - Gulf Takaful Insurance Company/Desktop/Test/Transferred",
+  "log_directory": "C:/Users/0291/OneDrive - Gulf Takaful Insurance Company/Desktop/Test/Logs",
+  "files": {
+      "Monday": "sunday-FULL.DMP",
+      "Tuesday": "monday-FULL.DMP",
+      "Wednesday": "tuesday-FULL.DMP",
+      "Thursday": "wednesday-FULL.DMP",
+      "Friday": "thursday-FULL.DMP",
+      "Saturday": "friday-FULL.DMP",
+      "Sunday": "saturday-FULL.DMP"
+  },
+  "email_settings": {
+    "smtp_server": "mail.gigtakaful.com.kw",
+    "smtp_port": 25,
+    "sender": "no-reply@gigtakaful.com.kw",
+    "recipient": "IT@gigtakaful.com.kw"
+  }
+}
