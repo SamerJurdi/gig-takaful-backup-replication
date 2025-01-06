@@ -25,6 +25,7 @@ FILE_SERVER_DIRECTORY = config["file_server_directory"]
 FILES_MAP = config["files"]
 LOG_DIRECTORY = config["log_directory"]
 EMAIL_SETTINGS = config["email_settings"]
+DAYS_TO_DELETE = config["days_to_delete"]
 
 # Set up logging function to create a structured log file by date
 def setup_logger():
@@ -64,14 +65,14 @@ def send_email(subject, body):
 # Initialize logger
 setup_logger()
 
-# Calculate the names of the next 4 days of the week
-def get_next_days(day_name, days_ahead=4):
+# Calculate the names of the next days_ahead number of days of the week
+def get_next_days(day_name, days_ahead):
     days_of_week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     start_index = days_of_week.index(day_name)
     return [days_of_week[(start_index + i) % 7] for i in range(1, days_ahead + 1)]
 
-def delete_next_backups(current_day):
-    days_to_check = get_next_days(current_day)
+def delete_next_backups(current_day, days_to_delete):
+    days_to_check = get_next_days(current_day, days_to_delete)
     for day in days_to_check:
         next_file_name = FILES_MAP.get(day)
         if next_file_name:
@@ -125,7 +126,7 @@ try:
         shutil.copy(zip_file_path, FILE_SERVER_DIRECTORY)
         logging.info(f"File {zip_file_name} transferred to {FILE_SERVER_DIRECTORY}.")
 
-        delete_next_backups(day_of_week)
+        delete_next_backups(day_of_week, DAYS_TO_DELETE)
 
     else:
         error_msg = f"File {file_name} not found for {day_of_week} in {SOURCE_DIRECTORY}. Process aborted."

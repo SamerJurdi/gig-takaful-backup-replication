@@ -16,5 +16,6 @@
     "smtp_port": 25,
     "sender": "no-reply@gigtakaful.com.kw",
     "recipient": "IT@gigtakaful.com.kw"
-  }
+  },
+  "days_to_delete": 0
 }
