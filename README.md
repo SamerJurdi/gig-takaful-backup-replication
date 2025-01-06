@@ -58,11 +58,11 @@ The script reads its configuration from the `config.json` file. You must set the
 - **files**: A mapping of weekdays to the filenames that should be backed up respectively.
 - **log_directory**: Path to the directory where the logs will be stored.
 - **email_settings**: SMTP email configuration to send notifications for successes, errors, and other updates.
+- **days_to_delete**: <u>Number</u> of backups to be deleted starting from the oldest. Any number above 6 will delete all backups referenced in `files`.
 
 ### Notes:
 - The script only works if the file for the current day exists in the `source_directory`.
 - The backup file will be zipped and transferred to the `file_server_directory`.
-- The script deletes old backups for the next 4 days of the week (as mapped in `files`).
 
 ## Script Workflow
 
